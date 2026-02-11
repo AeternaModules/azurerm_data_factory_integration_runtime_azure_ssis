@@ -1,6 +1,6 @@
-variable "data_factory_integration_runtime_azure_ssiss" {
+variable "data_factory_integration_runtime_azure_ssises" {
   description = <<EOT
-Map of data_factory_integration_runtime_azure_ssiss, attributes below
+Map of data_factory_integration_runtime_azure_ssises, attributes below
 Required:
     - data_factory_id
     - location
@@ -73,10 +73,10 @@ EOT
     node_size                        = string
     credential_name                  = optional(string)
     description                      = optional(string)
-    edition                          = optional(string, "Standard")
-    license_type                     = optional(string, "LicenseIncluded")
-    max_parallel_executions_per_node = optional(number, 1)
-    number_of_nodes                  = optional(number, 1)
+    edition                          = optional(string) # Default: "Standard"
+    license_type                     = optional(string) # Default: "LicenseIncluded"
+    max_parallel_executions_per_node = optional(number) # Default: 1
+    number_of_nodes                  = optional(number) # Default: 1
     catalog_info = optional(object({
       administrator_login    = optional(string)
       administrator_password = optional(string)

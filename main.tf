@@ -1,5 +1,5 @@
-resource "azurerm_data_factory_integration_runtime_azure_ssis" "data_factory_integration_runtime_azure_ssiss" {
-  for_each = var.data_factory_integration_runtime_azure_ssiss
+resource "azurerm_data_factory_integration_runtime_azure_ssis" "data_factory_integration_runtime_azure_ssises" {
+  for_each = var.data_factory_integration_runtime_azure_ssises
 
   data_factory_id                  = each.value.data_factory_id
   location                         = each.value.location
