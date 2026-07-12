@@ -1,3 +1,7 @@
+output "data_factory_integration_runtime_azure_ssises_id" {
+  description = "Map of id values across all data_factory_integration_runtime_azure_ssises, keyed the same as var.data_factory_integration_runtime_azure_ssises"
+  value       = { for k, v in azurerm_data_factory_integration_runtime_azure_ssis.data_factory_integration_runtime_azure_ssises : k => v.id }
+}
 output "data_factory_integration_runtime_azure_ssises_catalog_info" {
   description = "Map of catalog_info values across all data_factory_integration_runtime_azure_ssises, keyed the same as var.data_factory_integration_runtime_azure_ssises"
   value       = { for k, v in azurerm_data_factory_integration_runtime_azure_ssis.data_factory_integration_runtime_azure_ssises : k => v.catalog_info }
