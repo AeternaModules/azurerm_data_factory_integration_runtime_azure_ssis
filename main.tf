@@ -44,7 +44,7 @@ resource "azurerm_data_factory_integration_runtime_azure_ssis" "data_factory_int
     for_each = each.value.express_custom_setup != null ? [each.value.express_custom_setup] : []
     content {
       dynamic "command_key" {
-        for_each = express_custom_setup.value.command_key != null ? [express_custom_setup.value.command_key] : []
+        for_each = express_custom_setup.value.command_key != null ? express_custom_setup.value.command_key : []
         content {
           dynamic "key_vault_password" {
             for_each = command_key.value.key_vault_password != null ? [command_key.value.key_vault_password] : []
@@ -61,7 +61,7 @@ resource "azurerm_data_factory_integration_runtime_azure_ssis" "data_factory_int
         }
       }
       dynamic "component" {
-        for_each = express_custom_setup.value.component != null ? [express_custom_setup.value.component] : []
+        for_each = express_custom_setup.value.component != null ? express_custom_setup.value.component : []
         content {
           dynamic "key_vault_license" {
             for_each = component.value.key_vault_license != null ? [component.value.key_vault_license] : []
@@ -89,7 +89,7 @@ resource "azurerm_data_factory_integration_runtime_azure_ssis" "data_factory_int
   }
 
   dynamic "package_store" {
-    for_each = each.value.package_store != null ? [each.value.package_store] : []
+    for_each = each.value.package_store != null ? each.value.package_store : []
     content {
       linked_service_name = package_store.value.linked_service_name
       name                = package_store.value.name
